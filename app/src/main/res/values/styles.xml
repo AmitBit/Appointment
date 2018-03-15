@@ -7,5 +7,20 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <style name="li_Header">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:color">@color/textPrimary</item>
+        <item name="android:paddingLeft">@dimen/li_business_name_paddingLeft</item>
+        <item name="android:paddingTop">@dimen/li_business_name_paddingTop</item>
+    </style>
+    <style name="li_date_time">
+        <item name="android:textSize">16dp</item>
+
+        <item name="android:color">@color/textSecondary</item>
+        <item name="android:paddingLeft">@dimen/li_business_name_paddingLeft</item>
+        <item name="android:paddingTop">@dimen/li_business_name_paddingTop</item>
+    </style>
 
 </resources>
