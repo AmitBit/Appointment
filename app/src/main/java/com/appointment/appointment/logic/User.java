@@ -6,7 +6,7 @@ import android.provider.ContactsContract;
  * Created by AmitBit on 3/15/2018.
  */
 
-class User {
+public class User {
     String id;
     String firstName;
     String lastName;
