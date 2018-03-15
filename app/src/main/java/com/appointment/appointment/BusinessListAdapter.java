@@ -6,8 +6,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.appointment.appointment.logic.Appointment;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Liron on 15/03/2018.
@@ -15,6 +18,11 @@ import java.util.Date;
 
 public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapter.ViewHolder> {
 
+    private List<Appointment> clientAppointments;
+    public BusinessListAdapter (List<Appointment> list){
+
+       clientAppointments=list;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

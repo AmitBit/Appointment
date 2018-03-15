@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by AmitBit on 3/15/2018.
  */
 
-class Appointment {
+ class Appointment {
     Calendar startTime;
     Calendar endTime;
     Client client;
