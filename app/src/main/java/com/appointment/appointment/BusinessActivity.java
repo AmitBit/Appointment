@@ -10,4 +10,8 @@ public class BusinessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business);
     }
+
+    private void testMethod(){
+
+    }
 }
