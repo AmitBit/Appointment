@@ -22,7 +22,7 @@ public class SelectBusinessActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.businessRecyclerView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-      //  mAdapter = new BusinessListAdapter();
+       mAdapter = new BusinessListAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
 
