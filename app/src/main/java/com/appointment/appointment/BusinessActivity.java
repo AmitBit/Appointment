@@ -2,16 +2,13 @@ package com.appointment.appointment;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.appointment.appointment.Adapters.BusinessListAdapter;
 
 public class BusinessActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_business);
-    }
 
-    private void testMethod(){
 
-    }
 }

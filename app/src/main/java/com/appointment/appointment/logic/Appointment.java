@@ -15,4 +15,13 @@ public class Appointment {
     Client client;
     Business business;
     Status status;
+
+    public Business getBusiness(){
+        return business;
+    }
+
+    public Date getAppointmentDate(){
+
+        return startTime.getTime();
+    }
 }
