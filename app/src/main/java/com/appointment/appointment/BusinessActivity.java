@@ -39,4 +39,8 @@ public class BusinessActivity extends FragmentActivity {
     public void clickButton3(View view) {
         mPager.setCurrentItem(0);
     }
+
+    private void testMethod(){
+
+    }
 }

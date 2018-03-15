@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="li_business_height">108dp</dimen>
+    <dimen name="li_business_image_size">20dp</dimen>
+    <dimen name="li_business_name_textsize">20dp</dimen>
+    <dimen name="li_business_date_time_textsize"></dimen>
+    <dimen name="li_business_name_paddingTop">5dp</dimen>
+    <dimen name="li_business_name_paddingLeft">10dp</dimen>
+</resources>
