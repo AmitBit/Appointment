@@ -3,6 +3,7 @@ package com.appointment.appointment;
 
 import android.app.Activity;
 import android.os.Bundle;
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -40,7 +41,5 @@ public class BusinessActivity extends FragmentActivity {
         mPager.setCurrentItem(0);
     }
 
-    private void testMethod(){
 
-    }
 }
