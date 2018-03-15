@@ -16,12 +16,50 @@ public class Appointment {
     Business business;
     Status status;
 
-    public Business getBusiness(){
+
+    public Date getAppointmentDate() {
+
+        return startTime.getTime();
+
+    }
+
+    public Calendar getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Calendar startTime) {
+        this.startTime = startTime;
+    }
+
+    public Calendar getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Calendar endTime) {
+        this.endTime = endTime;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Business getBusiness() {
         return business;
     }
 
-    public Date getAppointmentDate(){
+    public void setBusiness(Business business) {
+        this.business = business;
+    }
 
-        return startTime.getTime();
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
