@@ -59,13 +59,13 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
 
     private Appointment getClosestAppointment(Business business) {
         Appointment closestAppointment = null;
-        for (Appointment appointment: client.getAppointmentsByBusinessMap().get(business)) {
-            if(closestAppointment == null){
-                closestAppointment = appointment;
-            }else if (closestAppointment.getStartTime().after(appointment)){
-                closestAppointment = appointment;
-            }
-        }
+//        for (Appointment appointment: client.getAppointmentsByBusinessMap().get(business)) {
+//            if(closestAppointment == null){
+//                closestAppointment = appointment;
+//            }else if (closestAppointment.getStartTime().after(appointment)){
+//                closestAppointment = appointment;
+//            }
+//        }
 
         return closestAppointment;
     }
@@ -73,7 +73,7 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
     @Override
     public int getItemCount() {
 
-        return clientAppointments.size();
+        return 4;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
