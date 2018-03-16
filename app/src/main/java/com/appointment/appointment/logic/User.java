@@ -1,7 +1,5 @@
 package com.appointment.appointment.logic;
 
-import android.provider.ContactsContract;
-
 /**
  * Created by AmitBit on 3/15/2018.
  */
@@ -10,8 +8,38 @@ public class User {
     String id;
     String firstName;
     String lastName;
-    ContactsContract.CommonDataKinds.Phone phoneNumber;
-    ContactsContract.CommonDataKinds.Email email;
+    String phoneNumber;
+    String email;
+    //ContactsContract.CommonDataKinds.Phone phoneNumber;
+    //ContactsContract.CommonDataKinds.Email email;
+
+
+    public User(String id, String firstName, String lastName, String phoneNumber, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getId() {
         return id;
@@ -37,19 +65,5 @@ public class User {
         this.lastName = lastName;
     }
 
-    public ContactsContract.CommonDataKinds.Phone getPhoneNumber() {
-        return phoneNumber;
-    }
 
-    public void setPhoneNumber(ContactsContract.CommonDataKinds.Phone phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public ContactsContract.CommonDataKinds.Email getEmail() {
-        return email;
-    }
-
-    public void setEmail(ContactsContract.CommonDataKinds.Email email) {
-        this.email = email;
-    }
 }

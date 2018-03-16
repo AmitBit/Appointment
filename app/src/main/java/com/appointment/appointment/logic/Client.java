@@ -11,6 +11,20 @@ public class Client extends User{
     List<Appointment> clientAppointments;
     List<Business> registeredBusinesses;
 
+    public Client() {
+    }
+
+    public Client(String id, String firstName, String lastName, String phoneNumber, String email, List<Appointment> clientAppointments, List<Business> registeredBusinesses) {
+        super(id, firstName, lastName, phoneNumber, email);
+        this.clientAppointments = clientAppointments;
+        this.registeredBusinesses = registeredBusinesses;
+    }
+
+    public Client(List<Appointment> clientAppointments, List<Business> registeredBusinesses) {
+        this.clientAppointments = clientAppointments;
+        this.registeredBusinesses = registeredBusinesses;
+    }
+
     public List<Appointment> getClientAppointments() {
         if(clientAppointments == null){
             clientAppointments = new ArrayList<>();
