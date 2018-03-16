@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.appointment.appointment.R;
 import com.appointment.appointment.logic.Appointment;
-import com.appointment.appointment.logic.Business;
-import com.appointment.appointment.logic.Client;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,15 +17,16 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Liron on 15/03/2018.
+ * Created by AmitBit on 16/03/2018.
  */
 
-public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapter.ViewHolder> {
+public class RequestsListAdapter extends RecyclerView.Adapter<RequestsListAdapter.ViewHolder> {
 
-    private Client client;
+    private List<Appointment> clientAppointments;
     final Calendar c=Calendar.getInstance();
-    public BusinessListAdapter (Client client){
-        this.client = client;
+    public RequestsListAdapter(List<Appointment> list){
+
+       clientAppointments=list;
     }
 
     @Override
@@ -40,9 +39,8 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Business business=client.getRegisteredBusinesses().get(position);
-        final  Appointment appointment = getClosestAppointment(business);
-        holder.nameOfBusiness.setText(business.getBusinessName());
+        final Appointment appointment=clientAppointments.get(position);
+        holder.nameOfBusiness.setText(appointment.getBusiness().getBusinessName());
         Date appointmentDate=appointment.getAppointmentDate();
         DateFormat dateFormat=new SimpleDateFormat("dd/MM/yy");
         String appointmentDateString=dateFormat.format(appointmentDate);
@@ -57,22 +55,10 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
         holder.img.setImageDrawable((appointment.getBusiness().getImg()));
     }
 
-    private Appointment getClosestAppointment(Business business) {
-        Appointment closestAppointment = null;
-//        for (Appointment appointment: client.getAppointmentsByBusinessMap().get(business)) {
-//            if(closestAppointment == null){
-//                closestAppointment = appointment;
-//            }else if (closestAppointment.getStartTime().after(appointment)){
-//                closestAppointment = appointment;
-//            }
-//        }
-
-        return closestAppointment;
-    }
-
     @Override
     public int getItemCount() {
-        return client.getRegisteredBusinesses().size();
+
+        return clientAppointments.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -5,34 +5,32 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.appointment.appointment.Adapters.BusinessListAdapter;
+import com.appointment.appointment.Adapters.RequestsListAdapter;
 import com.appointment.appointment.logic.Business;
-import com.appointment.appointment.logic.Client;
 
-import java.util.List;
-
-public class SelectBusinessActivity extends AppCompatActivity {
-
+public class RequestsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private Business mBusiness;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_business);
-        initRecyclerView();
-    }
+        setContentView(R.layout.activity_requests);
 
-    public void initRecyclerView (){
-        mRecyclerView = findViewById(R.id.businessRecyclerView);
+        mRecyclerView = (RecyclerView) findViewById(R.id.requestsRecyclerView);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        Client client = new Client();
 
-       mAdapter = new BusinessListAdapter(client);
-     //  mAdapter = new BusinessListAdapter();
+        // specify an adapter (see also next example)
+        mAdapter = new RequestsListAdapter(mBusiness.getClientsRequests());
         mRecyclerView.setAdapter(mAdapter);
-
-
     }
 }

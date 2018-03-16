@@ -1,10 +1,13 @@
 package com.appointment.appointment.logic;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  * Created by AmitBit on 3/15/2018.
  */
 
-public class User {
+public class User implements Serializable{
     String id;
     String firstName;
     String lastName;
