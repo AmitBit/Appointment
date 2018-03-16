@@ -55,7 +55,8 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
         }*/
 //       holder.label.setText("Appointment");
         holder.date.setText(appointmentDate);
-        holder.img.setImageDrawable((appointment.getBusiness().getImg()));
+        holder.img.setImageDrawable((business.getBusinessImg()));
+        holder.time.setText(appointment.getStartTime());
     }
 
     private Appointment getClosestAppointment(Business business) {
@@ -78,7 +79,7 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView nameOfBusiness,date, label;
+        public TextView nameOfBusiness,date, time;
         public ImageView img;
 
         public ViewHolder (View view){
@@ -87,6 +88,7 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
             date=view.findViewById(R.id.li_appointment_date_time);
            // label=view.findViewById(R.id.li_appointment_date_time_label);
             img=view.findViewById(R.id.li_business_img);
+            time=view.findViewById(R.id.li_appointment_time);
 
 
         }

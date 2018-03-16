@@ -13,7 +13,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:color">@color/textPrimary</item>
         <item name="android:paddingLeft">@dimen/li_business_name_paddingLeft</item>
-        <item name="android:paddingTop">@dimen/li_business_name_padding</item>
+        <item name="android:paddingTop">@dimen/li_business_name_paddingTop</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
     <style name="li_date_time">
