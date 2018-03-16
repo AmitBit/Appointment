@@ -2,6 +2,7 @@ package com.appointment.appointment.logic;
 
 import com.appointment.appointment.logic.enums.Status;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,14 +10,12 @@ import java.util.Date;
  * Created by AmitBit on 3/15/2018.
  */
 
-public class Appointment {
+public class Appointment implements Serializable {
     Calendar startTime;
     Calendar endTime;
     Client client;
     Business business;
     Status status;
-
-
 
     public Appointment() {
     }
