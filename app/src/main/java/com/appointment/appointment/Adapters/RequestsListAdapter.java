@@ -51,7 +51,7 @@ public class RequestsListAdapter extends RecyclerView.Adapter<RequestsListAdapte
 //        else  {
 //        holder.label.setText("Last Appointment: ");
 //        }
-        holder.label.setText("Appointment");
+       // holder.label.setText("Appointment");
         holder.date.setText(appointmentDateString);
         holder.img.setImageDrawable((appointment.getBusiness().getImg()));
     }
@@ -71,7 +71,7 @@ public class RequestsListAdapter extends RecyclerView.Adapter<RequestsListAdapte
             super(view);
             nameOfBusiness=view.findViewById(R.id.li_business_name);
             date=view.findViewById(R.id.li_appointment_date_time);
-            label=view.findViewById(R.id.li_appointment_date_time_label);
+         //   label=view.findViewById(R.id.li_appointment_date_time_label);
             img=view.findViewById(R.id.li_business_img);
 
 

@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/li_business_height"
-    android:orientation="vertical">
+    android:layout_height="85dp"
+    android:orientation="vertical"
+    android:elevation="10dp">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,8 +12,8 @@
 
         <ImageView
             android:id="@+id/li_business_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_alignParentStart="true"
             android:layout_margin="5dp"
             android:scaleType="centerCrop"
@@ -27,6 +28,7 @@
             style="@style/li_Header"
             android:layout_toEndOf="@id/li_business_img"
             android:paddingTop="@dimen/li_business_name_padding"
+            android:textColor="@color/textPrimary"
             tools:text="Business Name"
 
             />
@@ -69,28 +71,26 @@
             android:layout_toEndOf="@id/li_appointment_time_icon"
             android:layout_below="@id/li_business_name"
             style="@style/li_date_time"
-
             tools:text="17:00"
             />
 
         <Button
             android:id="@+id/li_business_phone"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentBottom="true"
-            android:layout_below="@+id/li_appointment_time_icon"
-            android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@id/li_business_location"
+            android:layout_toStartOf="@+id/li_business_location"
             android:background="@drawable/ic_phone"
-            android:paddingTop="1dp" />
+            android:paddingTop="1dp"
+            android:backgroundTint="@color/textPrimary"/>
 
         <Button
             android:id="@+id/li_business_location"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-
+android:backgroundTint="@color/textPrimary"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
