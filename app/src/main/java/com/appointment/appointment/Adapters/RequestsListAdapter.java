@@ -41,16 +41,17 @@ public class RequestsListAdapter extends RecyclerView.Adapter<RequestsListAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Appointment appointment=clientAppointments.get(position);
         holder.nameOfBusiness.setText(appointment.getBusiness().getBusinessName());
-        Date appointmentDate=appointment.getAppointmentDate();
+        String appointmentDate=appointment.getAppointmentDate();
         DateFormat dateFormat=new SimpleDateFormat("dd/MM/yy");
         String appointmentDateString=dateFormat.format(appointmentDate);
         Date today=c.getTime();
-        if (today.before(appointmentDate)||today==appointmentDate){
-           holder.label.setText("Next Appointment: ");
-        }
-        else  {
-        holder.label.setText("Last Appointment: ");
-        }
+//        if (today.before(appointmentDate)||today==appointmentDate){
+//           holder.label.setText("Next Appointment: ");
+//        }
+//        else  {
+//        holder.label.setText("Last Appointment: ");
+//        }
+        holder.label.setText("Appointment");
         holder.date.setText(appointmentDateString);
         holder.img.setImageDrawable((appointment.getBusiness().getImg()));
     }

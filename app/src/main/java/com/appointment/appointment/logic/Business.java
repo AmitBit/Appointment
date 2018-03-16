@@ -27,6 +27,12 @@ public class Business {
         businessName=name;
         businessImg=photo;
     }
+    public Business (String idNum, String name){
+
+        id=idNum;
+        businessName=name;
+
+    }
 
 
     public Business(String id, User businessOwner, String businessName, List<Client> clients, Drawable businessImg) {

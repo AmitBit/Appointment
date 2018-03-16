@@ -31,6 +31,16 @@ public class DbUtils {
     private static Boolean isFireBaseInitiated = false;
     private DatabaseReference reference;
 
+    private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+public void setClient(Client client) {
+
+        this.client=client;
+
+}
     private DbUtils() {
         this.reference = FirebaseDatabase.getInstance().getReference();
     }

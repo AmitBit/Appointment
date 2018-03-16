@@ -32,6 +32,10 @@ public class Client extends User{
         this.registeredBusinesses = registeredBusinesses;
     }
 
+    public Client(String id, String firstName, String lastName, String phoneNumber, String email){
+        super(id, firstName, lastName, phoneNumber, email);
+    }
+
     public Client(List<Appointment> clientAppointments, List<Business> registeredBusinesses) {
         this.clientAppointments = clientAppointments;
         this.registeredBusinesses = registeredBusinesses;
@@ -66,4 +70,6 @@ public class Client extends User{
     public void registerNewBusiness(Business newBusiness){
         getRegisteredBusinesses().add(newBusiness);
     }
+
+
 }

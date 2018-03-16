@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.appointment.appointment.Adapters.BusinessListAdapter;
 import com.appointment.appointment.logic.Business;
 import com.appointment.appointment.logic.Client;
+import com.appointment.appointment.logic.DbUtils;
 
 import java.util.List;
 
@@ -27,8 +28,7 @@ public class SelectBusinessActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.businessRecyclerView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        Client client = new Client();
-
+        Client client = DbUtils.getInstance().getClient();
        mAdapter = new BusinessListAdapter(client);
      //  mAdapter = new BusinessListAdapter();
         mRecyclerView.setAdapter(mAdapter);
