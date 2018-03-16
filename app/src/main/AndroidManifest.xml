@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
         <!-- <activity android:name=".BusinessActivity" /> -->
-        <activity android:name=".RequestsActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".SelectBusinessActivity"></activity>
+        <activity android:name=".RequestsActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SelectBusinessActivity" />
     </application>
 
 </manifest>

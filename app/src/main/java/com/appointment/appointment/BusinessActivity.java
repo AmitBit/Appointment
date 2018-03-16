@@ -5,11 +5,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class BusinessActivity extends FragmentActivity {
 
@@ -19,6 +23,8 @@ public class BusinessActivity extends FragmentActivity {
     private PagerAdapter mScreenSlidePagerAdapter;
     private ViewPager mPager;
     private FloatingActionButton fab;
+    private BottomNavigationView mBottomBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,30 +35,55 @@ public class BusinessActivity extends FragmentActivity {
         mScreenSlidePagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mScreenSlidePagerAdapter);
 
-        fab = findViewById(R.id.fab);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+       // fab = findViewById(R.id.fab);
 
-                Intent intent=new Intent();
-                intent.setClass(BusinessActivity.this,SelectBusinessActivity.class);
-                startActivity(intent);
-            }
-        });
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent=new Intent();
+//                intent.setClass(BusinessActivity.this, SelectBusinessActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
-    public void clickCalendar(View view) {
+    private TextView mTextMessage;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    clickCalendar();
+                    return true;
+                case R.id.navigation_dashboard:
+                    clickButton2();
+                    return true;
+                case R.id.navigation_notifications:
+                    clickButton3();
+                    return true;
+            }
+            return false;
+        }
+    };
+
+
+    public void clickCalendar() {
         //mScreenSlidePagerAdapter.getItemPosition(0);
         mPager.setCurrentItem(0);
 
     }
 
-    public void clickButton2(View view) {
+    public void clickButton2() {
         mPager.setCurrentItem(1);
     }
 
-    public void clickButton3(View view) {
+    public void clickButton3() {
         mPager.setCurrentItem(0);
         openMainActivity();
     }
