@@ -1,6 +1,5 @@
 package com.appointment.appointment.logic;
 
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
@@ -36,6 +35,16 @@ public class Business {
     }
 
 
+    public Business(String id, User businessOwner, String businessName, List<Client> clients, Drawable businessImg) {
+        this.id = id;
+        this.businessOwner = businessOwner;
+        this.businessName = businessName;
+        this.clients = clients;
+        this.businessImg = businessImg;
+    }
+
+
+
     public List<Appointment> getClientsRequests() {
         if(clientsRequests == null){
             clientsRequests = new ArrayList<>();
@@ -67,6 +76,7 @@ public class Business {
     public void setClientAppointmentsRequests(Map<Client, List<Appointment>> clientAppointmentsRequests) {
         this.clientAppointmentsRequests = clientAppointmentsRequests;
     }
+
 
 
     public String getId() {

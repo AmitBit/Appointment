@@ -2,12 +2,14 @@ package com.appointment.appointment.logic;
 
 import com.appointment.appointment.logic.enums.Status;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Created by AmitBit on 3/15/2018.
  */
+
 
 public class Appointment {
  //  Calendar startTime;
@@ -18,8 +20,6 @@ public class Appointment {
     Business business;
     String status;
     String date;
-
-
 
     public Appointment() {
     }
