@@ -14,15 +14,15 @@ public class User {
     //ContactsContract.CommonDataKinds.Email email;
 
 
+    public User() {
+    }
+
     public User(String id, String firstName, String lastName, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-    }
-
-    public User() {
     }
 
     public String getPhoneNumber() {

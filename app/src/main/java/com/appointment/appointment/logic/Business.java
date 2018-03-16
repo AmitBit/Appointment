@@ -1,6 +1,5 @@
 package com.appointment.appointment.logic;
 
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 import java.util.List;
@@ -18,6 +17,14 @@ public class Business {
 
 
     public Business() {
+    }
+
+    public Business(String id, User businessOwner, String businessName, List<Client> clients, Drawable businessImg) {
+        this.id = id;
+        this.businessOwner = businessOwner;
+        this.businessName = businessName;
+        this.clients = clients;
+        this.businessImg = businessImg;
     }
 
     public String getId() {
