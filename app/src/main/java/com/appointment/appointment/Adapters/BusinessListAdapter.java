@@ -72,8 +72,7 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
 
     @Override
     public int getItemCount() {
-
-        return 4;
+        return client.getRegisteredBusinesses().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -14,6 +14,14 @@ import java.util.Map;
 public class Client extends User{
     List<Appointment> clientAppointments;
     List<Business> registeredBusinesses;
+    private Map<Business, List<Appointment>> appointmentsByBusinessMap;
+
+    public Map<Business, List<Appointment>> getAppointmentsByBusinessMap() {
+        if (appointmentsByBusinessMap == null) {
+            appointmentsByBusinessMap = new HashMap<>();
+        }
+        return appointmentsByBusinessMap;
+    }
 
     public Client() {
     }
