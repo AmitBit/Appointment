@@ -2,34 +2,40 @@ package com.appointment.appointment;
 
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.alamkanak.weekview.DateTimeInterpreter;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
-import com.google.firebase.database.FirebaseDatabase;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+
 /**
  * Created by Lital Kapon on 3/15/2018.
  */
 
-public class ScreenSlidePageFragment extends Fragment implements WeekView.EventClickListener, MonthLoader.MonthChangeListener, WeekView.EventLongPressListener, WeekView.EmptyViewLongPressListener {
+public class ScreenSlidePageFragment extends Fragment implements WeekView.EventClickListener, MonthLoader.MonthChangeListener,
+                                                                 WeekView.EventLongPressListener, WeekView.EmptyViewLongPressListener,
+                                                                 OnDateSelectedListener, OnMonthChangedListener{
 
-
+    private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
+    MaterialCalendarView widget;// = (MaterialCalendarView) rootView.findViewById(R.id.weekView);
     private WeekView mWeekView;
 
 
@@ -38,7 +44,7 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
                              Bundle savedInstanceState) {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
-
+        widget = (MaterialCalendarView) rootView.findViewById(R.id.calendarView);
 
         // Get a reference for the week view in the layout.
         mWeekView = (WeekView) rootView.findViewById(R.id.weekView);
@@ -270,6 +276,35 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
 
         return events;
     }
+
+    /*@Override
+    public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
+        // textView.setText(getSelectedDatesString());
+        String selectedDate = getSelectedDatesString();
+    }*/
+
+    @Override
+    public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+        String selectedDate = getSelectedDatesString();
+    }
+
+    @Override
+    public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
+        //noinspection ConstantConditions
+        //getSupportActionBar().setTitle(FORMATTER.format(date.getDate()));
+    }
+
+    private String getSelectedDatesString() {
+        CalendarDay date = widget.getSelectedDate();
+        if (date == null) {
+            return "No Selection";
+        }
+        //return FORMATTER.format(date.getDate());
+        String selectedDate = FORMATTER.format(date.getDate());
+
+        return selectedDate;
+    }
+
 
 
 }

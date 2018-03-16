@@ -1,13 +1,9 @@
 package com.appointment.appointment;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,16 +13,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        reference = FirebaseDatabase.getInstance().getReference();
-        //User user = new Us
-       // reference.child("users").push().setValue();
+        /*reference = FirebaseDatabase.getInstance().getReference();
+        User user = new User("300481736", "Lital", "Kapon", "0508447486", "litalkapon@gmail.com");
+        reference.child("users").push().setValue(user);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                new AsyncTask<DataSnapshot, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(DataSnapshot... dataSnapshots) {
 
-                }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+
+                    }
+                }.execute(dataSnapshot);
             }
 
             @Override
@@ -34,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+*/
 
 
 
