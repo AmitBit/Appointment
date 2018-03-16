@@ -16,6 +16,14 @@ public class Business {
     List<Client> clients;
     Drawable businessImg;
 
+    public Business (){}
+    public Business (String idNum, String name, Drawable photo){
+
+        id=idNum;
+        businessName=name;
+        businessImg=photo;
+    }
+
 
     public String getId() {
         return id;

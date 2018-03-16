@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.appointment.appointment.R;
 import com.appointment.appointment.logic.Appointment;
+import com.appointment.appointment.logic.Business;
+import com.appointment.appointment.logic.Client;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,11 +24,10 @@ import java.util.List;
 
 public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapter.ViewHolder> {
 
-    private List<Appointment> clientAppointments;
+    private Client client;
     final Calendar c=Calendar.getInstance();
-    public BusinessListAdapter (List<Appointment> list){
-
-       clientAppointments=list;
+    public BusinessListAdapter (Client client){
+        this.client = client;
     }
 
     @Override
@@ -39,8 +40,9 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Appointment appointment=clientAppointments.get(position);
-        holder.nameOfBusiness.setText(appointment.getBusiness().getBusinessName());
+        final Business business=client.getRegisteredBusinesses().get(position);
+        final  Appointment appointment = getClosestAppointment(business);
+        holder.nameOfBusiness.setText(business.getBusinessName());
         Date appointmentDate=appointment.getAppointmentDate();
         DateFormat dateFormat=new SimpleDateFormat("dd/MM/yy");
         String appointmentDateString=dateFormat.format(appointmentDate);
@@ -53,6 +55,19 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
         }
         holder.date.setText(appointmentDateString);
         holder.img.setImageDrawable((appointment.getBusiness().getImg()));
+    }
+
+    private Appointment getClosestAppointment(Business business) {
+        Appointment closestAppointment = null;
+        for (Appointment appointment: client.getAppointmentsByBusinessMap().get(business)) {
+            if(closestAppointment == null){
+                closestAppointment = appointment;
+            }else if (closestAppointment.getStartTime().after(appointment)){
+                closestAppointment = appointment;
+            }
+        }
+
+        return closestAppointment;
     }
 
     @Override
