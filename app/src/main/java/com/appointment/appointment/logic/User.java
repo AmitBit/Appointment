@@ -13,6 +13,9 @@ public class User {
     ContactsContract.CommonDataKinds.Phone phoneNumber;
     ContactsContract.CommonDataKinds.Email email;
 
+    public User() {
+    }
+
     public String getId() {
         return id;
     }

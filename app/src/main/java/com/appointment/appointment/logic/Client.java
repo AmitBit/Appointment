@@ -11,6 +11,9 @@ public class Client extends User{
     List<Appointment> clientAppointments;
     List<Business> registeredBusinesses;
 
+    public Client() {
+    }
+
     public List<Appointment> getClientAppointments() {
         if(clientAppointments == null){
             clientAppointments = new ArrayList<>();

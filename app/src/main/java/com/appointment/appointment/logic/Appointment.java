@@ -16,11 +16,12 @@ public class Appointment {
     Business business;
     Status status;
 
-
     public Date getAppointmentDate() {
 
         return startTime.getTime();
+    }
 
+    public Appointment() {
     }
 
     public Calendar getStartTime() {

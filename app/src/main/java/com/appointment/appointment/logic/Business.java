@@ -17,6 +17,9 @@ public class Business {
     Drawable businessImg;
 
 
+    public Business() {
+    }
+
     public String getId() {
         return id;
     }
