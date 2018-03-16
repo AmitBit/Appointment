@@ -1,7 +1,16 @@
 package com.appointment.appointment.logic;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by Lital Kapon on 3/16/2018.
@@ -14,6 +23,9 @@ public class DbUtils {
     public static final String DB_APPOINTMENT = "appointment";
 
     private static DbUtils dbUtils;
+
+
+    private static Boolean isFireBaseInitiated = false;
     private DatabaseReference reference;
 
     private DbUtils() {
@@ -22,11 +34,15 @@ public class DbUtils {
 
     // Need to lock
     public static DbUtils getInstance(){
-        if(dbUtils != null){
+        if(dbUtils == null){
             dbUtils = new DbUtils();
         }
 
         return dbUtils;
+    }
+
+    public static Boolean getIsFireBaseInitiated() {
+        return isFireBaseInitiated;
     }
 
     /*reference = FirebaseDatabase.getInstance().getReference();
@@ -47,5 +63,49 @@ public class DbUtils {
 
     public void insertAppointment(Appointment appointment){
         reference.child(DB_APPOINTMENT).push().setValue(appointment);
+    }
+
+    public void saveToSharedPref(Activity activity, String key, String data){
+        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(key, data);
+        editor.commit();
+    }
+
+    public String readFromSharedPref(Activity activity, String key){
+        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+        String result = sharedPref.getString(key, "");
+        return result;
+    }
+
+    public  void initFireBase() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(final DataSnapshot dataSnapshot) {
+                new AsyncTask<DataSnapshot, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(DataSnapshot... dataSnapshots) {
+                        isFireBaseInitiated = true;
+                        for (DataSnapshot child: dataSnapshot.getChildren()) {
+                            Log.i("MyTag", child.getValue().toString());
+                            User user = child.getValue(User.class);
+                            Log.i("MyTag", user.getFirstName());
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+
+                    }
+                }.execute(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
