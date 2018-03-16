@@ -1,7 +1,11 @@
 package com.appointment.appointment.logic;
 
+import com.appointment.appointment.R;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by AmitBit on 3/15/2018.
@@ -10,6 +14,14 @@ import java.util.List;
 public class Client extends User{
     List<Appointment> clientAppointments;
     List<Business> registeredBusinesses;
+    private Map<Business, List<Appointment>> appointmentsByBusinessMap;
+
+    public Map<Business, List<Appointment>> getAppointmentsByBusinessMap() {
+        if (appointmentsByBusinessMap == null) {
+            appointmentsByBusinessMap = new HashMap<>();
+        }
+        return appointmentsByBusinessMap;
+    }
 
     public Client() {
     }

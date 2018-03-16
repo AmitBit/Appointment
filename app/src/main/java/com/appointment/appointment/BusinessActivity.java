@@ -2,6 +2,7 @@ package com.appointment.appointment;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentActivity;
@@ -39,6 +40,13 @@ public class BusinessActivity extends FragmentActivity {
 
     public void clickButton3(View view) {
         mPager.setCurrentItem(0);
+        openMainActivity();
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
