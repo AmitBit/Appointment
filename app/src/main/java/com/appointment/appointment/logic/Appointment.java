@@ -10,43 +10,61 @@ import java.util.Date;
  */
 
 public class Appointment {
-    Calendar startTime;
-    Calendar endTime;
+ //  Calendar startTime;
+   // Calendar endTime;
+    String startTime;
+    String endTime;
     Client client;
     Business business;
-    Status status;
+    String status;
+    String date;
 
 
 
     public Appointment() {
     }
 
-    public Appointment(Calendar startTime, Calendar endTime, Client client, Business business, Status status) {
+    public Appointment(String date, String startTime, String endTime, Client client, Business business, String status) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.client = client;
         this.business = business;
         this.status = status;
+        this.date=date;
     }
 
-    public Date getAppointmentDate() {
+    public String getAppointmentDate() {
 
-        return startTime.getTime();
+        return date;
     }
 
-    public Calendar getStartTime() {
+   /* public Calendar getStartTime() {
         return startTime;
+    }*/
+
+   public String getStartTime(){
+       return startTime;
     }
 
-    public void setStartTime(Calendar startTime) {
+    /*public void setStartTime(Calendar startTime) {
+        this.startTime = startTime;
+    }*/
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Calendar getEndTime() {
+    /*public Calendar getEndTime() {
+        return endTime;
+    }*/
+
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Calendar endTime) {
+    /*public void setEndTime(Calendar endTime) {
+        this.endTime = endTime;
+    }*/
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -66,11 +84,11 @@ public class Appointment {
         this.business = business;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

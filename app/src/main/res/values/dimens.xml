@@ -5,6 +5,7 @@
     <dimen name="li_business_image_size">20dp</dimen>
     <dimen name="li_business_name_textsize">20dp</dimen>
     <dimen name="li_business_date_time_textsize"></dimen>
-    <dimen name="li_business_name_paddingTop">5dp</dimen>
-    <dimen name="li_business_name_paddingLeft">10dp</dimen>
+    <dimen name="li_business_name_padding">16dp</dimen>
+    <dimen name="li_business_name_paddingLeft">16dp</dimen>
+
 </resources>

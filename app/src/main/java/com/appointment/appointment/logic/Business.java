@@ -28,6 +28,12 @@ public class Business {
         businessName=name;
         businessImg=photo;
     }
+    public Business (String idNum, String name){
+
+        id=idNum;
+        businessName=name;
+
+    }
 
 
     public List<Appointment> getClientsRequests() {

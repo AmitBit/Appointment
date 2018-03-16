@@ -41,19 +41,20 @@ public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Business business=client.getRegisteredBusinesses().get(position);
-        final  Appointment appointment = getClosestAppointment(business);
+        final  Appointment appointment =client.getClientAppointments().get(position);
         holder.nameOfBusiness.setText(business.getBusinessName());
-        Date appointmentDate=appointment.getAppointmentDate();
+        String appointmentDate=appointment.getAppointmentDate();
         DateFormat dateFormat=new SimpleDateFormat("dd/MM/yy");
-        String appointmentDateString=dateFormat.format(appointmentDate);
+   //     String appointmentDateString=dateFormat.format(appointmentDate);
         Date today=c.getTime();
-        if (today.before(appointmentDate)||today==appointmentDate){
+       /* if (today.before(appointmentDate)||today==appointmentDate){
            holder.label.setText("Next Appointment: ");
         }
         else  {
         holder.label.setText("Last Appointment: ");
-        }
-        holder.date.setText(appointmentDateString);
+        }*/
+       holder.label.setText("Appointment");
+        holder.date.setText(appointmentDate);
         holder.img.setImageDrawable((appointment.getBusiness().getImg()));
     }
 
