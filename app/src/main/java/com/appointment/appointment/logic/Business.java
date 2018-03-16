@@ -25,6 +25,9 @@ public class Business {
     }
 
 
+    public Business() {
+    }
+
     public String getId() {
         return id;
     }

@@ -10,14 +10,15 @@
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        >
-    </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:visibility="visible"></android.support.v4.view.ViewPager>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="bottom"
         android:orientation="horizontal"
         android:visibility="visible">
@@ -27,25 +28,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Calendar"
-            android:onClick="clickCalendar"/>
+            android:onClick="clickCalendar"
+            android:text="Calendar" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button"
-            android:onClick="clickButton2"/>
+            android:onClick="clickButton2"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button"
-            android:onClick="clickButton3"/>
+            android:onClick="clickButton3"
+            android:text="Button" />
     </LinearLayout>
-
 
 </LinearLayout>

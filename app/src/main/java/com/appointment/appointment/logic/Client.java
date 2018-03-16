@@ -15,9 +15,29 @@ public class Client extends User{
     private List<Business> registeredBusinesses;
     private Map<Business,List<Appointment>> appointmentsByBusinessMap;
 
+<<<<<<< HEAD
     public Map<Business, List<Appointment>> getAppointmentsByBusinessMap() {
         if(appointmentsByBusinessMap == null){
             appointmentsByBusinessMap = new HashMap<>();
+=======
+    public Client() {
+    }
+
+    public Client(String id, String firstName, String lastName, String phoneNumber, String email, List<Appointment> clientAppointments, List<Business> registeredBusinesses) {
+        super(id, firstName, lastName, phoneNumber, email);
+        this.clientAppointments = clientAppointments;
+        this.registeredBusinesses = registeredBusinesses;
+    }
+
+    public Client(List<Appointment> clientAppointments, List<Business> registeredBusinesses) {
+        this.clientAppointments = clientAppointments;
+        this.registeredBusinesses = registeredBusinesses;
+    }
+
+    public List<Appointment> getClientAppointments() {
+        if(clientAppointments == null){
+            clientAppointments = new ArrayList<>();
+>>>>>>> 250707b22394d89271db9f4c0dff2b094d09f54a
         }
         return appointmentsByBusinessMap;
     }
