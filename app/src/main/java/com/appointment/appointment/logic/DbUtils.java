@@ -51,7 +51,7 @@ public class DbUtils {
     /*reference = FirebaseDatabase.getInstance().getReference();
     User user = new User("300481736", "Lital", "Kapon", "0508447486", "litalkapon@gmail.com");
         reference.child("users").push().setValue(user);*/
-
+    
     public void insertUser(User user){
         reference.child(DB_USER).push().setValue(user);
     }
