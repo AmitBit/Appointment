@@ -51,7 +51,7 @@ public class DbUtils {
     /*reference = FirebaseDatabase.getInstance().getReference();
     User user = new User("300481736", "Lital", "Kapon", "0508447486", "litalkapon@gmail.com");
         reference.child("users").push().setValue(user);*/
-
+    
     public void insertUser(User user){
         reference.child(DB_USER).push().setValue(user);
     }
@@ -143,43 +143,4 @@ public class DbUtils {
 
         return null;
     }
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-    public List<Appointment> getBusinessAppointment(int businessId){
-        reference.child(DB_APPOINTMENT).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
-                new AsyncTask<DataSnapshot, Void, List<Appointment>>() {
-                    @Override
-                    protected List<Appointment> doInBackground(DataSnapshot... dataSnapshots) {
-                        List<Appointment> appointmentList = new ArrayList<>();
-                        for (DataSnapshot data: dataSnapshot.getChildren()) {
-                            Appointment appointment = data.getValue(Appointment.class);
-                            appointmentList.add(appointment);
-                            /*if(appointment.getKey().equals(Email.encodeID(email))){
-                                retrievedUser = messageSnapshot.getValue(User.class);
-                                break;
-                            }*/
-                        }
-
-                        return appointmentList;
-                    }
-
-                }.execute(dataSnapshot);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return null;
-    }
-=======
-
->>>>>>> origin/Lital_branch
->>>>>>> refs/remotes/origin/Lital_branch
 }
