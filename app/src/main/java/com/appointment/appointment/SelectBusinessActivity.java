@@ -20,20 +20,15 @@ public class SelectBusinessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_business);
+        initRecyclerView();
     }
 
     public void initRecyclerView (){
         mRecyclerView = findViewById(R.id.businessRecyclerView);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-<<<<<<< HEAD
         Client client = new Client();
        mAdapter = new BusinessListAdapter(client);
-=======
-     //  mAdapter = new BusinessListAdapter();
->>>>>>> 250707b22394d89271db9f4c0dff2b094d09f54a
         mRecyclerView.setAdapter(mAdapter);
-
-
     }
 }
