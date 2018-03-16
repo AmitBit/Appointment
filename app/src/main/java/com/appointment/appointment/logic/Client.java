@@ -12,14 +12,9 @@ import java.util.Map;
  */
 
 public class Client extends User{
-    private List<Business> registeredBusinesses;
-    private Map<Business,List<Appointment>> appointmentsByBusinessMap;
+    List<Appointment> clientAppointments;
+    List<Business> registeredBusinesses;
 
-<<<<<<< HEAD
-    public Map<Business, List<Appointment>> getAppointmentsByBusinessMap() {
-        if(appointmentsByBusinessMap == null){
-            appointmentsByBusinessMap = new HashMap<>();
-=======
     public Client() {
     }
 
@@ -37,15 +32,17 @@ public class Client extends User{
     public List<Appointment> getClientAppointments() {
         if(clientAppointments == null){
             clientAppointments = new ArrayList<>();
->>>>>>> 250707b22394d89271db9f4c0dff2b094d09f54a
         }
-        return appointmentsByBusinessMap;
+        return clientAppointments;
     }
 
+    public void setClientAppointments(List<Appointment> clientAppointments) {
+        this.clientAppointments = clientAppointments;
+    }
 
     public List<Business> getRegisteredBusinesses() {
         if(registeredBusinesses == null){
-            createBusinessList();
+            registeredBusinesses = new ArrayList<>();
         }
         return registeredBusinesses;
     }
@@ -55,38 +52,10 @@ public class Client extends User{
     }
 
     public void addNewAppointment(Appointment newAppointment){
-        addAppointmentToMap(newAppointment);
+        getClientAppointments().add(newAppointment);
     }
 
     public void registerNewBusiness(Business newBusiness){
         getRegisteredBusinesses().add(newBusiness);
-    }
-
-    private void createBusinessList(){
-
-        Business business1=new Business("2112","Nelly's Hair Salon", R.drawable.hair_salon );
-        Business business2=new Business("4455","MyClininc", );
-        Business business3=new Business("9876","SNails",);
-
-
-        registeredBusinesses = new ArrayList<Business>();
-        registeredBusinesses.add(business1);
-        registeredBusinesses.add(business2);
-        registeredBusinesses.add(business3);
-        setRegisteredBusinesses(registeredBusinesses);
-    }
-
-    private void setAppointmentsByBusinessMap(Map<Business, List<Appointment>> appointmentsByBusinessMap){
-        this.appointmentsByBusinessMap = appointmentsByBusinessMap;
-    }
-
-    private void addAppointmentToMap(Appointment appointment) {
-        if(getAppointmentsByBusinessMap().get(appointment.getBusiness()) == null){
-            List<Appointment> appointments = new ArrayList<>();
-            appointments.add(appointment);
-            getAppointmentsByBusinessMap().put(appointment.getBusiness(), appointments);
-        }else{
-            getAppointmentsByBusinessMap().get(appointment.getBusiness()).add(appointment);
-        }
     }
 }
