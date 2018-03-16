@@ -79,7 +79,7 @@ public class DbUtils {
     }
 
     public  void initFireBase() {
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 new AsyncTask<DataSnapshot, Void, Void>() {
