@@ -13,6 +13,8 @@ import com.alamkanak.weekview.DateTimeInterpreter;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.appointment.appointment.logic.Appointment;
+import com.appointment.appointment.logic.DbUtils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
@@ -35,7 +37,7 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
                                                                  OnDateSelectedListener, OnMonthChangedListener{
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
-    MaterialCalendarView widget;// = (MaterialCalendarView) rootView.findViewById(R.id.weekView);
+    MaterialCalendarView monthCalendar;// = (MaterialCalendarView) rootView.findViewById(R.id.weekView);
     private WeekView mWeekView;
 
 
@@ -44,7 +46,9 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
                              Bundle savedInstanceState) {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
-        widget = (MaterialCalendarView) rootView.findViewById(R.id.calendarView);
+        monthCalendar = (MaterialCalendarView) rootView.findViewById(R.id.calendarView);
+
+        monthCalendar.setOnDateChangedListener(this);
 
         // Get a reference for the week view in the layout.
         mWeekView = (WeekView) rootView.findViewById(R.id.weekView);
@@ -72,7 +76,40 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
         // Set up a date time interpreter to interpret how the date and time will be formatted in
         // the week view. This is optional.
         setupDateTimeInterpreter(false);
+
+        // get business's appointments from db
+        int businessId = 1;
+        List<Appointment> appointmentsList = DbUtils.getInstance().getBusinessAppointment(businessId);
+
+        if(appointmentsList != null){
+            // go through business's appointments and display in dally calendar
+            //for(int i = 0; i < appointment.size(); i++){
+            for (Appointment appointment: appointmentsList){
+                // add current appointment to calendar
+                //appointment.getStartTime()
+                //addAppointment(periodIndex / 12, periodIndex % 12 + 1);
+            }
+
+            //}
+
+        }
+
         return rootView;
+    }
+
+    private void addAppointment(int newYear, int newMonth){
+        /*startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, 5);
+        startTime.set(Calendar.MINUTE, 0);
+        startTime.set(Calendar.MONTH, newMonth - 1);
+        startTime.set(Calendar.YEAR, newYear);
+        startTime.add(Calendar.DATE, 1);
+        endTime = (Calendar) startTime.clone();
+        endTime.add(Calendar.HOUR_OF_DAY, 3);
+        endTime.set(Calendar.MONTH, newMonth - 1);
+        event = new WeekViewEvent(3, getEventTitle(startTime), startTime, endTime);
+        //event.setColor(getResources().getColor(R.color.event_color_03));
+        events.add(event);*/
     }
 
     /**
@@ -237,11 +274,8 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
         startTime.set(Calendar.YEAR, newYear);
         endTime = (Calendar) startTime.clone();
         endTime.add(Calendar.HOUR_OF_DAY, 23);
-
-
         event = new WeekViewEvent(7, getEventTitle(startTime), startTime, endTime);
         //event.setColor(getResources().getColor(R.color.event_color_04));
-        events.add(event);
         events.add(event);
 
         startTime = Calendar.getInstance();
@@ -295,7 +329,7 @@ public class ScreenSlidePageFragment extends Fragment implements WeekView.EventC
     }
 
     private String getSelectedDatesString() {
-        CalendarDay date = widget.getSelectedDate();
+        CalendarDay date = monthCalendar.getSelectedDate();
         if (date == null) {
             return "No Selection";
         }
